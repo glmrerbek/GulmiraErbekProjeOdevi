@@ -12,6 +12,7 @@ public class BasketModel {
     By delete = By.xpath("//*[contains(@class,'update-buttons-container')]//a[@title='Sil']");
 
     public BasketModel(WebDriver driver){
+
         this.driver = driver;
     }
 

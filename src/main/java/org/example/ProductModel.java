@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.Keys;
 
+
 import java.util.List;
 import java.util.Random;
 
@@ -15,9 +16,22 @@ public class ProductModel {
     By searchWord = By.xpath("//*[@class='sc-4995aq-0 sc-14oyvky-0 iYMTpq']");
     By down = By.linkText("2");
     By products= By.xpath("//*[@class='catalog-view clearfix products-container']/li/a");
+    By close = By.xpath("//*[contains(@class,'tyj39b-3')]");
 
     public ProductModel(WebDriver driver){
+
         this.driver = driver;
+    }
+    public void closes(){
+
+        try{
+            driver.findElement(close).click();
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     public void search(){
@@ -30,7 +44,7 @@ public class ProductModel {
         try {
             driver.findElement(down).click();
             Thread.sleep(5000);
-            Assert.assertEquals(driver.getCurrentUrl(),"https://www.gittigidiyor.com/arama/?k=bilgisayar&sf=2");
+            Assert.assertEquals(driver.getCurrentUrl(),"https://www.gittigidiyor.com/arama/?k=bilgisayar&sf=2"); //ikinci sayfa kontrolü
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -39,7 +53,7 @@ public class ProductModel {
     List<WebElement> result;
     public void selectRandomProduct(){
         try {
-            result = driver.findElements(products);
+            result = driver.findElements(products); //s eki kullandık tüm ürünleri kapsadı bu ürünleri result listesine attı
             Thread.sleep(2000);
             Random r = new Random();
             int linkNo= r.nextInt(result.size());

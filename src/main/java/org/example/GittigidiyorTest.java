@@ -5,11 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class GittigidiyorTest {
-    ProductModel productModel;
-    BasketModel basketModel;
+public class GittigidiyorTest{
+
     WebDriver driver;
     String url = "https://www.gittigidiyor.com/";
+    ProductModel productModel;
+    BasketModel basketModel;
+
     By logIn = By.xpath("//*[@title='Giriş Yap']");
     By giris = By.xpath("//*[@class='sc-12t95ss-3 fDarBX']");
     By email = By.id("L-UserNameField");
@@ -28,7 +30,7 @@ public class GittigidiyorTest {
     }
 
     public void logInPage(){
-        Assert.assertEquals(driver.getCurrentUrl(),"https://www.gittigidiyor.com/");
+        Assert.assertEquals(driver.getCurrentUrl(),"https://www.gittigidiyor.com/");//url karşılaştırması yapıyor
         try {
             Thread.sleep(3000);
             driver.findElement(logIn).click(); //tarayıcıdan yerini ve adını belirlediğimiz butona tıklama yapıyor
@@ -41,8 +43,8 @@ public class GittigidiyorTest {
 
     public void userInformation(){
         try {
-            driver.findElement(email).sendKeys("xxxx@outlook.com");
-            driver.findElement(password).sendKeys("xx");
+            driver.findElement(email).sendKeys("miraerbek0502@outlook.com");
+            driver.findElement(password).sendKeys("aamir9665");
             driver.findElement(submit).click();
             Thread.sleep(3000);
         } catch (InterruptedException e) {
@@ -77,4 +79,5 @@ public class GittigidiyorTest {
     public void deleteButton(){
         basketModel.deleteButton();
     }
+    public void closes(){productModel.closes();}
 }
