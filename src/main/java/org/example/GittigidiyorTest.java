@@ -43,7 +43,7 @@ public class GittigidiyorTest{
 
     public void userInformation(){
         try {
-            driver.findElement(email).sendKeys("xxxx@xx.com");
+            driver.findElement(email).sendKeys("xxxx@xxx.com");
             driver.findElement(password).sendKeys("xxxx");
             driver.findElement(submit).click();
             Thread.sleep(3000);
